@@ -12,6 +12,8 @@ import { Sign } from "crypto";
 import HomePage from "./Components/HomePage/HomePage";
 import Loader from "./Components/utils/Loader/Loader";
 import NotFound from "./Components/Not Found/NotFound";
+import '@fortawesome/fontawesome-free/css/all.min.css';
+
 
 function App() {
   const [token, setToken] = useState("");

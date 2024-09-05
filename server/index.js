@@ -1,12 +1,14 @@
 import express from "express";
 import dotenv from "dotenv";
-import route from "./routes/userRoutes.js";
+import UserRoutes from "./routes/userRoutes.js";
+import TaskRoutes from "./routes/taskRoutes.js"
 import mongoose from "mongoose";
 import cors from "cors";
 dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 4000;
+
 app.use(cors());
 
 mongoose
@@ -15,7 +17,8 @@ mongoose
   .catch((err) => console.log(err));
 
 app.use(express.json());
-app.use(route);
+app.use(UserRoutes);
+app.use(TaskRoutes);
 
 app.listen(PORT, (err) => {
   if (err) {

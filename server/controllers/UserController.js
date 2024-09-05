@@ -40,7 +40,10 @@ export const login = async (req, res) => {
       bcrypt.compare(password, userData.password, function (err, result) {
         if (result) {
           let payload = { userData };
-          let token = jwt.sign(payload, process.env.SECREAT_KEY);
+          // console.log(payload)
+          // let token = jwt.sign(payload, process.env.SECREAT_KEY);
+          // console.log(process.env.SECRET_KEY)
+          let token = jwt.sign({ userId: userData.id }, "thisisasecreatkey", { expiresIn: '1h' });
           res.status(200).json({
             message: "login successfully",
             status: 200,
